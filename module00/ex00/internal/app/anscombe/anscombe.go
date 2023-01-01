@@ -3,10 +3,11 @@ package anscombe
 import (
 	"bufio"
 	"fmt"
-	"github.com/urumqinsky/go-modules/module00/ex00/internal/app/flag"
 	"os"
 	"sort"
 	"strconv"
+
+	"github.com/urumqinsky/go-modules/module00/ex00/internal/app/flag"
 )
 
 type Anscombe struct {

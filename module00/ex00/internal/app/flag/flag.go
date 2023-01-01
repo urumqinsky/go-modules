@@ -1,8 +1,6 @@
 package flag
 
-import (
-	"flag"
-)
+import "flag"
 
 type Flags struct {
 	Mean   *bool
