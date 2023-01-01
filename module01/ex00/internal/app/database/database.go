@@ -1,5 +1,7 @@
 package database
 
+// Аннотирование структур `json:"" xml:""`
+
 type Recipes struct {
 	Cake []Cake `json:"cake" xml:"cake"`
 }

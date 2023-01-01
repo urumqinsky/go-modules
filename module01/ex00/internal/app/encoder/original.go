@@ -1,12 +1,29 @@
 package encoder
 
 import (
-	"github.com/urumqinsky/go-modules/module01/ex00/internal/app/database"
+	"encoding/xml"
+	"io"
 	"os"
+
+	"github.com/urumqinsky/go-modules/module01/ex00/internal/app/database"
 )
 
 type OriginalDB struct{}
 
-func (s *OriginalDB) Reader(file *os.File) database.Recipes {
-	return database.Recipes{}
+func NewOriginalDB() *OriginalDB {
+	return &OriginalDB{}
+}
+
+func (o *OriginalDB) Reader(file *os.File) database.Recipes {
+	input, err := io.ReadAll(file)
+	if err != nil {
+		panic(err)
+	}
+
+	var data = database.Recipes{}
+	err = xml.Unmarshal(input, &data)
+	if err != nil {
+		panic(err)
+	}
+	return data
 }
